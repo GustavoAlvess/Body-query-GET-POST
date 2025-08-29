@@ -1,0 +1,25 @@
+{
+  "name": "body-query-get-post",
+  "version": "1.0.0",
+  "description": "Registro da aula de BACK-END - POST - 1TDS2 -SENAI VALINHOS",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : " cls && nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavoAlvess/Body-query-GET-POST.git"
+  },
+  "keywords": ["Body-query" , "POST", "nodejs"],
+  "author": "Gustavo Alves",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GustavoAlvess/Body-query-GET-POST/issues"
+  },
+  "homepage": "https://github.com/GustavoAlvess/Body-query-GET-POST#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
