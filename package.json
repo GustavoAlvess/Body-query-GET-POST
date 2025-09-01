@@ -6,13 +6,17 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : " cls && nodemon server.js"
+    "dev": " cls && node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GustavoAlvess/Body-query-GET-POST.git"
   },
-  "keywords": ["Body-query" , "POST", "nodejs"],
+  "keywords": [
+    "Body-query",
+    "POST",
+    "nodejs"
+  ],
   "author": "Gustavo Alves",
   "license": "MIT",
   "bugs": {
@@ -20,6 +24,8 @@
   },
   "homepage": "https://github.com/GustavoAlvess/Body-query-GET-POST#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
