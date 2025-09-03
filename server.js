@@ -195,13 +195,18 @@ app.get("/varinhas/materialmaiscomum", (req, res) => {
     contadorMaterial[materialComum] =
       (contadorMaterial[materialComum] || 0) + 1;
 
-   
+    }
+   if(contadorMaterial == 1){
     res.status(200).json({
       sucess: true,
       message: "Material mais comum:",
       contador: contadorMaterial});
+    } else{
+       res.status(200).json({
+      sucess: true,
+      message: "Não há material mais comum",
+      veja: varinhas});
     }
-
     });
 
 
