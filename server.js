@@ -2,7 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import dados from "./src/data/dados.js";
-const { bruxos, varinhas, pocoes, animais} = dados;
+const { bruxos, varinhas, pocoes, animais } = dados;
 // Criar aplicação com Express e configurar para aceitar JSON
 const app = express();
 app.use(express.json());
@@ -154,11 +154,9 @@ app.get("/animais", (req, res) => {
   });
 });
 
-
 app.post("/varinhas", (req, res) => {
   // Acessando dados do body
-  const { material, nucleo, comprimento } =
-    req.body;
+  const { material, nucleo, comprimento } = req.body;
 
   console.log("Dados recebidos:", req.body);
 
@@ -166,7 +164,8 @@ app.post("/varinhas", (req, res) => {
   if (!material || !nucleo || !comprimento) {
     return res.status(400).json({
       success: false,
-      message: "Material, Núcleo e comprimento são obrigatórios para uma varinhas!",
+      message:
+        "Material, Núcleo e comprimento são obrigatórios para uma varinhas!",
     });
   }
 
@@ -175,7 +174,7 @@ app.post("/varinhas", (req, res) => {
     id: varinhas.length + 1,
     material,
     nucleo,
-    comprimento
+    comprimento,
   };
 
   // Adicionar à lista de bruxos
@@ -186,6 +185,38 @@ app.post("/varinhas", (req, res) => {
     message: "Nova varinha adicionada!",
     data: novaVarinha,
   });
+});
+app.get("/varinhas/materialmaiscomum", (req, res) => {
+  const contadorMaterial = {};
+  for (let i = 0; i < varinhas.length; i++) {
+    const varinha = varinhas[i];
+    const materialComum = varinha.material;
+
+    contadorMaterial[materialComum] =
+      (contadorMaterial[materialComum] || 0) + 1;
+
+   
+    res.status(200).json({
+      sucess: true,
+      message: "Material mais comum:",
+      contador: contadorMaterial});
+    }
+
+    });
+
+
+app.get("/bruxoscasa", (req, res) => {
+  const contadorCasa = {}; // objeto para contar casas
+  for (let i = 0; i < bruxos.length; i++) {
+    const bruxo = bruxos[i];
+    const casaOcupada = bruxo.casa; // casa ocupada é aqula que o bruxo na posição do array está
+    contadorCasa[casaOcupada] = (contadorCasa[casaOcupada] || 0) + 1;
+  }
+
+  res.status(200).json({
+    sucess: true,
+    message: "bruxos por casa:",
+    contador: contadorCasa});
 });
 
 // Iniciar servidor escutando na porta definida
